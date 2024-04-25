@@ -5,15 +5,22 @@ async function getAdvice(){
     return data;
 }
 function updateAdvice(){
+
     $("#spinner").show();
     $("h1").hide();
+
     getAdvice().then((data)=>{
         let advice=data.slip.advice;
         $("h1").html(advice);
-    $("h1").show();
+    
+    setTimeout(()=>{
+        $("h1").show();
     $("#spinner").hide();
-
+    },1500);
+    
+    
     });
+    
 }
 $(document).ready(()=>{
    updateAdvice();
